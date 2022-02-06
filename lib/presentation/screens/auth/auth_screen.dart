@@ -108,7 +108,49 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          
+                          Text(
+                            "Shop,\nEarn Points,\nDonate!",
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(height: 56),
+                          (_isLoading)
+                              ? LinearProgressIndicator()
+                              : MaterialButton(
+                                  height: 55,
+                                  minWidth: double.maxFinite,
+                                  onPressed: () async {
+                                    await _signInWithGoogle(context);
+                                  },
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(35),
+                                  ),
+                                  color: purple,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height: 20,
+                                        child: Image.asset(
+                                            "assets/images/g_logo.png"),
+                                      ),
+                                      SizedBox(width: 16),
+                                      Text(
+                                        "Login with Google",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                        ],
                       ),
                     ),
                   ),
